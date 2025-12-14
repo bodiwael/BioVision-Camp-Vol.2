@@ -43,9 +43,9 @@ android/local.properties
 
 # Generated files
 android/.gradle/
-android/gradle/
 android/gradlew
 android/gradlew.bat
+android/gradle/wrapper/gradle-wrapper.jar
 
 # iOS
 ios/Pods/
