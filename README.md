@@ -1,1 +1,190 @@
-# BioVision-Camp-Vol.2
+# 🧬 BioVision Camp Vol.2 - Flutter Event App
+
+A beautiful, animated Flutter application for the BioVision Camp Vol.2 event, featuring a modern and colorful UI with comprehensive event information, registration system, and QR code generation.
+
+## ✨ Features
+
+### 📱 **Main Screens**
+- **Home Dashboard**: Animated menu grid with gradient cards for easy navigation
+- **Event Agenda**: Interactive timeline view showing the complete event schedule
+- **Featured Speakers**: Profile cards with detailed speaker information and topics
+- **Hackathon Details**: Complete information about prizes, themes, rules, and timeline
+- **Event Information**: Venue details, facilities, contact information
+- **Registration System**: Complete form with validation and role selection
+- **QR Code Generator**: Automatic QR code generation for registration desk check-in
+
+### 🎨 **Design Highlights**
+- Modern Material Design 3 with custom color scheme
+- Smooth animations using flutter_animate package
+- Gradient backgrounds and colorful UI elements
+- Beautiful card-based layouts with shadows
+- Custom Google Fonts (Poppins) for typography
+- Emoji icons for visual appeal
+- Responsive design for various screen sizes
+
+### 🛠️ **Technical Features**
+- Form validation for registration
+- Local data persistence using SharedPreferences
+- QR code generation with user data
+- Clean architecture with separate screens and models
+- Reusable widgets and components
+
+## 🚀 Getting Started
+
+### Prerequisites
+- Flutter SDK (>=3.0.0)
+- Dart SDK
+- Android Studio / VS Code with Flutter extensions
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/bodiwael/BioVision-Camp-Vol.2.git
+cd BioVision-Camp-Vol.2
+```
+
+2. Install dependencies:
+```bash
+flutter pub get
+```
+
+3. Run the app:
+```bash
+flutter run
+```
+
+## 📦 Dependencies
+
+- **google_fonts** (^6.1.0): Custom typography
+- **qr_flutter** (^4.1.0): QR code generation
+- **flutter_animate** (^4.5.0): Smooth animations
+- **intl** (^0.19.0): Date and time formatting
+- **shared_preferences** (^2.2.2): Local data storage
+- **url_launcher** (^6.2.4): External URL handling
+
+## 📂 Project Structure
+
+```
+lib/
+├── main.dart                    # App entry point
+├── models/                      # Data models
+│   ├── speaker.dart
+│   └── agenda_item.dart
+├── screens/                     # UI screens
+│   ├── home_screen.dart
+│   ├── agenda_screen.dart
+│   ├── speakers_screen.dart
+│   ├── hackathon_screen.dart
+│   ├── event_details_screen.dart
+│   └── registration_screen.dart
+└── utils/                       # Utilities
+    └── sample_data.dart         # Sample event data
+```
+
+## 🎯 App Features Breakdown
+
+### 1. Home Screen
+- Animated welcome section with event branding
+- Grid menu with 6 main navigation options
+- Quick info cards for venue and duration
+- Gradient backgrounds with multiple colors
+
+### 2. Agenda Screen
+- Timeline-based layout
+- Color-coded events by type (sessions, workshops, breaks, hackathon)
+- Time badges and speaker information
+- Smooth scroll animations
+
+### 3. Speakers Screen
+- Profile cards with gradient headers
+- Speaker photos (emoji placeholders)
+- Detailed modal view on tap
+- Organization and topic information
+
+### 4. Hackathon Screen
+- Prize pool display with medal emojis
+- Challenge themes with icons
+- Rules and guidelines section
+- 24-hour timeline breakdown
+
+### 5. Event Details Screen
+- Comprehensive about section
+- Venue with address and transportation
+- Date/time information in cards
+- Facilities grid
+- Contact information
+
+### 6. Registration Screen
+- Multi-field form with validation
+- Role selector with chip UI
+- Hackathon participation checkbox
+- QR code generation after registration
+- Persistent storage of registration data
+- Edit capability for registered users
+
+## 🎨 Color Scheme
+
+- **Primary**: #6C63FF (Purple)
+- **Secondary**: #FF6584 (Pink)
+- **Accent**: #00D4FF (Cyan)
+- **Success**: #4CAF50 (Green)
+- **Warning**: #FFC107 (Amber)
+- **Hackathon**: #9C27B0 (Deep Purple)
+
+## 🔧 Customization
+
+### Adding New Speakers
+Edit `lib/utils/sample_data.dart` and add to the `getSpeakers()` method:
+
+```dart
+Speaker(
+  name: 'Your Name',
+  title: 'Your Title',
+  company: 'Company Name',
+  bio: 'Biography...',
+  imageUrl: '👤',
+  topic: 'Talk Topic',
+),
+```
+
+### Adding Agenda Items
+Edit `lib/utils/sample_data.dart` and add to the `getAgenda()` method:
+
+```dart
+AgendaItem(
+  time: '10:00 AM',
+  title: 'Session Title',
+  description: 'Description...',
+  speaker: 'Speaker Name',
+  type: 'session', // session, workshop, break, hackathon
+),
+```
+
+## 📱 Screenshots
+
+The app features:
+- Vibrant color gradients
+- Smooth page transitions
+- Interactive cards and buttons
+- Form validation feedback
+- QR code display for registration
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to submit pull requests or open issues.
+
+## 📄 License
+
+This project is open source and available for educational purposes.
+
+## 👥 Event Information
+
+**BioVision Camp Vol.2**
+- **Date**: December 20-21, 2025
+- **Venue**: BioTech Innovation Center, Silicon Valley, CA
+- **Theme**: Where Biology Meets Technology
+
+---
+
+Built with ❤️ using Flutter
