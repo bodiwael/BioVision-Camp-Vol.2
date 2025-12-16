@@ -5,12 +5,14 @@ A beautiful, animated Flutter application for the BioVision Camp Vol.2 event, fe
 ## ✨ Features
 
 ### 📱 **Main Screens**
-- **Home Dashboard**: Animated menu grid with gradient cards for easy navigation
+- **Splash Screen**: Animated splash with automatic auth check
+- **Login/Register**: Secure authentication system with password hashing
+- **Home Dashboard**: Personalized dashboard with user greeting and logout
 - **Event Agenda**: Interactive timeline view showing the complete event schedule
 - **Featured Speakers**: Profile cards with detailed speaker information and topics
 - **Hackathon Details**: Complete information about prizes, themes, rules, and timeline
 - **Event Information**: Venue details, facilities, contact information
-- **Registration System**: Complete form with validation and role selection
+- **Registration System**: Complete form with National ID and Google Sheets integration
 - **QR Code Generator**: Automatic QR code generation for registration desk check-in
 
 ### 🎨 **Design Highlights**
@@ -23,10 +25,15 @@ A beautiful, animated Flutter application for the BioVision Camp Vol.2 event, fe
 - Responsive design for various screen sizes
 
 ### 🛠️ **Technical Features**
-- Form validation for registration
+- **Authentication System**: Login/Register with email and password
+- **Google Sheets Integration**: Store user data in Google Sheets (backend-less)
+- **Password Security**: SHA-256 password hashing
+- **Session Management**: Persistent login with SharedPreferences
+- **National ID**: Required field for registration verification
+- Form validation for all inputs
 - Local data persistence using SharedPreferences
 - QR code generation with user data
-- Clean architecture with separate screens and models
+- Clean architecture with separate screens, models, and services
 - Reusable widgets and components
 
 ## 🚀 Getting Started
@@ -35,6 +42,7 @@ A beautiful, animated Flutter application for the BioVision Camp Vol.2 event, fe
 - Flutter SDK (>=3.0.0)
 - Dart SDK
 - Android Studio / VS Code with Flutter extensions
+- Google Account (for Google Sheets integration)
 
 ### Installation
 
@@ -49,7 +57,13 @@ cd BioVision-Camp-Vol.2
 flutter pub get
 ```
 
-3. Run the app:
+3. **Set up Google Sheets** (REQUIRED):
+   - Follow the detailed guide in [`GOOGLE_SHEETS_SETUP.md`](GOOGLE_SHEETS_SETUP.md)
+   - Create a Google Sheet for storing user data
+   - Get your API Key and Spreadsheet ID
+   - Update `lib/services/google_sheets_service.dart` with your credentials
+
+4. Run the app:
 ```bash
 flutter run
 ```
@@ -60,26 +74,37 @@ flutter run
 - **qr_flutter** (^4.1.0): QR code generation
 - **flutter_animate** (^4.5.0): Smooth animations
 - **intl** (^0.19.0): Date and time formatting
-- **shared_preferences** (^2.2.2): Local data storage
+- **shared_preferences** (^2.2.2): Local data storage & session management
 - **url_launcher** (^6.2.4): External URL handling
+- **http** (^1.2.0): API requests to Google Sheets
+- **crypto** (^3.0.3): Password hashing with SHA-256
+- **googleapis** (^13.2.0): Google Sheets API integration
+- **googleapis_auth** (^1.6.0): Google API authentication
 
 ## 📂 Project Structure
 
 ```
 lib/
-├── main.dart                    # App entry point
-├── models/                      # Data models
+├── main.dart                          # App entry point
+├── models/                            # Data models
+│   ├── user.dart                      # User model with Google Sheets mapping
 │   ├── speaker.dart
 │   └── agenda_item.dart
-├── screens/                     # UI screens
-│   ├── home_screen.dart
+├── screens/                           # UI screens
+│   ├── splash_screen.dart            # Splash with auth check
+│   ├── login_screen.dart             # Login screen
+│   ├── auth_registration_screen.dart # Registration with Google Sheets
+│   ├── home_screen.dart              # Dashboard with user info
 │   ├── agenda_screen.dart
 │   ├── speakers_screen.dart
 │   ├── hackathon_screen.dart
 │   ├── event_details_screen.dart
-│   └── registration_screen.dart
-└── utils/                       # Utilities
-    └── sample_data.dart         # Sample event data
+│   └── registration_screen.dart      # QR code display
+├── services/                          # Business logic
+│   ├── auth_service.dart             # Authentication service
+│   └── google_sheets_service.dart    # Google Sheets API integration
+└── utils/                             # Utilities
+    └── sample_data.dart              # Sample event data
 ```
 
 ## 🎯 App Features Breakdown
